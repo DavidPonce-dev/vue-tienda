@@ -22,9 +22,10 @@
     <v-btn to="/cart">
       <span class="mr-2">Carrito</span>
       <v-icon>mdi-cart</v-icon>
+      <span class="cantidad" v-if="productos.length > 0">{{productos.length}}</span>
     </v-btn>
 
-    <v-btn v-if="user != null" to="/account">
+    <v-btn v-if="user != null" to="/user">
       <span class="mr-2">Cuenta</span>
       <v-icon>mdi-account</v-icon>
     </v-btn>
@@ -46,7 +47,8 @@
 import { mapState } from 'vuex'
 export default {
 	computed: {
-		...mapState('user', ['user'])
+		...mapState('user', ['user']),
+		...mapState('cart', ['productos']),
 	}
 }
 </script>

@@ -30,7 +30,7 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="addProducto(producto)">
+      <v-btn class="mx-auto" color="primary" rounded @click="addProducto(producto)">
         Agregar al carrito
       </v-btn>
     </v-card-actions>

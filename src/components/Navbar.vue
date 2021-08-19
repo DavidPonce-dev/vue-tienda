@@ -19,6 +19,11 @@
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
+    <v-btn to="/tienda">
+      <span class="mr-2">Tienda</span>
+      <v-icon>mdi-store</v-icon>
+    </v-btn>
+
     <v-btn to="/cart">
       <span class="mr-2">Carrito</span>
       <v-icon>mdi-cart</v-icon>

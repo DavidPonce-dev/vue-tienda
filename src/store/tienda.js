@@ -1,8 +1,33 @@
 import Producto from "../models/Producto";
 
+const productoEjemplo = new Producto(
+  0,
+  "Cafe Badilico",
+  "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+  "Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+  4.5,
+  20,
+  2000,
+  0
+);
+
 export default {
-    namespaced: true,
-    state: {
-        productos: [new Producto(0), new Producto(1), new Producto(2), new Producto(3), new Producto(4)]
-    }
-}
+  namespaced: true,
+  state: {
+    productos: [
+      productoEjemplo,
+      { ...productoEjemplo, id: 1, stock: 0, rating: 2.5, descuento: 500 },
+      { ...productoEjemplo, id: 2, descuento: 1000 },
+      {
+        ...productoEjemplo,
+        id: 3,
+        imagen: [
+          "https://i0.wp.com/esferacreativa.com/wp-content/uploads/2017/05/fichas-tecnicas-de-productos-ecommerce-Teresa-Alba-MadridNYC.png?w=640&ssl=1",
+          "https://www.ecommercenews.pe/wp-content/uploads/2017/07/tienda-online-1024x512.png",
+        ],
+      },
+      { ...productoEjemplo, id: 4 },
+      { ...productoEjemplo, id: 5 },
+    ],
+  },
+};

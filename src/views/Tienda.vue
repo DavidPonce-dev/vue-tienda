@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>Vista Tienda</h1>
+    <h1>Productos disponibles</h1>
     <v-row>
       <v-col
         v-for="producto in productos"

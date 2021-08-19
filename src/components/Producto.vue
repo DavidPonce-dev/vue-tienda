@@ -5,7 +5,10 @@
       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
     />
 
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title
+      >Cafe Badilico
+      <div class="ms-auto text-subtitle-1">25 en stock</div>
+    </v-card-title>
 
     <v-card-text>
       <v-row align="center" class="mx-0">
@@ -30,7 +33,12 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <v-btn class="mx-auto" color="primary" rounded @click="addProducto(producto)">
+      <v-btn
+        class="mx-auto"
+        color="primary"
+        rounded
+        @click="addProducto(producto)"
+      >
         Agregar al carrito
       </v-btn>
     </v-card-actions>
@@ -38,16 +46,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
   props: {
     producto: {
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
-    ...mapActions('cart', ['addProducto'])
-  }
+    ...mapActions("cart", ["addProducto"]),
+  },
 };
 </script>
 

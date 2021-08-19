@@ -30,7 +30,7 @@
       </div>
     </v-card-text>
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
+      <v-btn color="deep-purple lighten-2" text @click="addProducto(producto)">
         Agregar al carrito
       </v-btn>
     </v-card-actions>
@@ -38,8 +38,16 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
-  props: {},
+  props: {
+    producto: {
+      required: true
+    }
+  },
+  methods: {
+    ...mapActions('cart', ['addProducto'])
+  }
 };
 </script>
 

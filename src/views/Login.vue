@@ -1,9 +1,39 @@
 <template>
   <v-container>
-    <h1>Vista Login</h1>
+    <v-card max-width="500px" class="mx-auto mt-5">
+      <v-card-title primary-title> Inicio de sesion </v-card-title>
+      <form @submit.prevent="">
+        <v-text-field
+          name="email"
+          label="Correo electronico"
+          v-model="email"
+          class="mx-4"
+        />
+        <v-text-field
+          name="password"
+          label="Contraseña"
+          v-model="password"
+          class="mx-4"
+        />
+        <v-checkbox
+          label="Mantener sesion inicidada"
+          v-model="checkbox"
+          class="mx-2"
+        />
+        <v-btn color="success" type="submit" class="ms-2 mb-4">Enviar</v-btn>
+      </form>
+    </v-card>
   </v-container>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      checkbox: false,
+    };
+  },
+};
 </script>

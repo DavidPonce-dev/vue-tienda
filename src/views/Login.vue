@@ -34,7 +34,7 @@ export default {
       email: "",
       password: "",
       checkbox: false,
-      loading: true,
+      loading: false,
     };
   },
   methods: {

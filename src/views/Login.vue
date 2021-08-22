@@ -2,7 +2,7 @@
   <v-container>
     <v-card max-width="500px" class="mx-auto mt-5">
       <v-card-title primary-title> Inicio de sesion </v-card-title>
-      <form @submit.prevent="">
+      <form @submit.prevent="submit">
         <v-text-field
           name="email"
           label="Correo electronico"
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   data() {
     return {
@@ -35,5 +36,12 @@ export default {
       checkbox: false,
     };
   },
+  methods: {
+    ...mapActions('user', ['login']),
+
+    submit(){
+      this.login(this.email, this.password)
+    }
+  }
 };
 </script>

@@ -39,13 +39,14 @@ export default {
   },
   methods: {
     ...mapActions("user", ["login"]),
+    ...mapActions("error", ["throwErrorMsg"]),
 
     submit() {
       const { email, password } = this;
       this.loading = true;
       this.login({ email, password })
         .then(() => this.$router.push('/'))
-        .catch((error) => {console.error(error)})
+        .catch((error) => {this.throwErrorMsg(error)})
         .finally(() => this.loading = false);
     },
   },

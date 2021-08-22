@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card max-width="500px" class="mx-auto mt-5">
+    <v-card max-width="500px" :loading="loading" class="mx-auto mt-5">
       <v-card-title primary-title> Inicio de sesion </v-card-title>
       <form @submit.prevent="submit">
         <v-text-field
@@ -27,21 +27,27 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       email: "",
       password: "",
       checkbox: false,
+      loading: true,
     };
   },
   methods: {
-    ...mapActions('user', ['login']),
+    ...mapActions("user", ["login"]),
 
-    submit(){
-      this.login(this.email, this.password)
-    }
-  }
+    submit() {
+      const { email, password } = this;
+      this.loading = true;
+      this.login({ email, password })
+        .then(() => this.$router.push('/'))
+        .catch((error) => {console.error(error)})
+        .finally(() => this.loading = false);
+    },
+  },
 };
 </script>

@@ -13,6 +13,7 @@
           name="password"
           label="Contraseña"
           v-model="password"
+          type="password"
           class="mx-4"
         />
         <v-checkbox

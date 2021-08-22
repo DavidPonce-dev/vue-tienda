@@ -5,12 +5,14 @@ const runLogin = ({ email, password }) => {
     { email: "qwe@asd.asd", password: "qweqweqwe" },
   ];
   return new Promise((res, rej) => {
-    for (const userOfList of userList) {
-      if (userOfList.email == email && userOfList.password == password) {
-        res({ email });
+    setTimeout(() => {
+      for (const userOfList of userList) {
+        if (userOfList.email == email && userOfList.password == password) {
+          res({ email });
+        }
+        rej(new Error("Error en los datos ingresados"));
       }
-    }
-    rej(new Error("Error en los datos ingresados"));
+    }, 1000);
   });
 };
 

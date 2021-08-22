@@ -27,7 +27,9 @@
     <v-btn to="/cart">
       <span class="mr-2">Carrito</span>
       <v-icon>mdi-cart</v-icon>
-      <span class="cantidad" v-if="productos.length > 0">{{productos.length}}</span>
+      <v-avatar color="white" size="19" v-if="productos.length > 0">
+        <span class="carrito-cantidad">{{ productos.length }}</span></v-avatar
+      >
     </v-btn>
 
     <v-btn v-if="user != null" to="/user">
@@ -49,11 +51,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 export default {
-	computed: {
-		...mapState('user', ['user']),
-		...mapState('cart', ['productos']),
-	}
-}
+  computed: {
+    ...mapState("user", ["user"]),
+    ...mapState("cart", ["productos"]),
+  },
+};
 </script>
+
+<style scoped>
+.carrito-cantidad {
+  color: black;
+  font-weight: 900;
+}
+</style>

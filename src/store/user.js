@@ -16,6 +16,15 @@ const runLogin = ({ email, password }) => {
   });
 };
 
+const runRegister = () => {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res();
+      rej();
+    }, 1000);
+  });
+};
+
 //desde aqui el codigo "real"
 import User from "../models/User.js";
 
@@ -34,6 +43,9 @@ export default {
       const user = await runLogin(data);
       const logged = new User(user);
       commit("setUser", logged);
+    },
+    async register() {
+      await runRegister()
     },
     async logout({ commit }) {
       commit("setUser", null);

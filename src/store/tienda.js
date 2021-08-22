@@ -1,15 +1,16 @@
 import Producto from "../models/Producto";
 
-const productoEjemplo = new Producto(
-  0,
-  "Cafe Badilico",
-  "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-  "Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
-  4.5,
-  20,
-  2000,
-  0
-);
+const productoEjemplo = new Producto({
+  id:0,
+  nombre:"Cafe Badilico",
+  imagen:"https://cdn.vuetifyjs.com/images/cards/cooking.png",
+  descripcion:"Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.",
+  rating:4.5,
+  cantEvaluado:15,
+  stock:20,
+  precio:2000,
+  descuento:0
+});
 
 export default {
   namespaced: true,

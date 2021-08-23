@@ -46,9 +46,16 @@ export default {
       const { email, password } = this;
       this.loading = true;
       this.login({ email, password })
-        .then(() => this.$router.push('/'))
-        .catch((error) => {this.throwErrorMsg(error)})
-        .finally(() => this.loading = false);
+        .then((token) => {
+          if (this.checkbox) {
+            localStorage.setItem("token", token);
+          } else {
+            sessionStorage.setItem("token", token);
+          }
+          this.$router.push("/");
+        })
+        .catch((error) => this.throwErrorMsg(error))
+        .finally(() => (this.loading = false));
     },
   },
 };

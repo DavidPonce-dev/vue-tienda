@@ -11,10 +11,23 @@
 <script>
 import Navbar from "./components/Navbar";
 import Error from "./components/Error";
+import { mapActions } from 'vuex';
 export default {
   components:{
     Navbar,
     Error
+  },
+  methods:{
+    ...mapActions('user', ['loadToken', 'logout']),
+    ...mapActions("error", ["throwErrorMsg"]),
+  },
+  
+  mounted(){
+    const token = sessionStorage.getItem('token') || localStorage.getItem('token')
+    if(token) this.loadToken(token).catch((error) => {
+      this.logout()
+      this.throwErrorMsg(error)
+    })
   }
 };
 </script>

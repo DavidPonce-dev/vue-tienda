@@ -2,7 +2,7 @@ import localSvcs from './local'
 
 let service
 
-if (process.env.SVC_TYPE == 'local'){
+if (process.env.VUE_APP_SVCS == 'local'){
     service = localSvcs
 }
 

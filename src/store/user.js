@@ -1,5 +1,7 @@
-import { loginSvc, registerSvc, checkTokenSvc } from '../services/user'
+import userSerives from '../services/user'
 import User from "../models/User.js";
+
+const { loginSvc, registerSvc, checkTokenSvc } = userSerives
 
 export default {
   namespaced: true,

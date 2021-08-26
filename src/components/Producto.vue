@@ -43,6 +43,7 @@
       <div v-if="producto.descuento > 0" class="mb-4 text-subtitle-1">
         $ {{ producto.precio - producto.descuento }}
       </div>
+      {{producto.descripcion}}
     </v-card-text>
     <v-card-actions>
       <v-btn

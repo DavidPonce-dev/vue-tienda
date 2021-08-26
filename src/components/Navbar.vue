@@ -27,8 +27,8 @@
     <v-btn to="/cart">
       <span class="mr-2">Carrito</span>
       <v-icon>mdi-cart</v-icon>
-      <v-avatar color="white" size="19" v-if="productos.length > 0">
-        <span class="carrito-cantidad">{{ productos.length }}</span></v-avatar
+      <v-avatar color="white" size="19" v-if="cantidad > 0">
+        <span class="carrito-cantidad">{{ cantidad }}</span></v-avatar
       >
     </v-btn>
 
@@ -53,10 +53,25 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  data(){
+    return {
+      cantidad: 0
+    }
+  },
   computed: {
     ...mapState("user", ["user"]),
-    ...mapState("cart", ["productos"]),
+    ...mapState("cart", ["carrito"]),
   },
+  watch:{
+    carrito () {
+      const productos = this.carrito.filter((producto) => producto != undefined)
+      let suma = 0
+      for (const producto of productos){
+        suma += producto.cantidad
+      }
+      this.cantidad = suma
+    }
+  }
 };
 </script>
 

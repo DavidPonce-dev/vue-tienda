@@ -49,7 +49,7 @@
         class="mx-auto"
         color="primary"
         rounded
-        @click="addProducto(producto)"
+        @click="addToCart(producto)"
         :disabled="producto.stock <= 0"
       >
         Agregar al carrito
@@ -67,7 +67,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions("cart", ["addProducto"]),
+    ...mapActions("cart", ["addToCart"]),
   },
 };
 </script>

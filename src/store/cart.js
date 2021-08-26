@@ -1,16 +1,26 @@
 export default {
-    namespaced: true,
-    state: {
-        productos: []
+  namespaced: true,
+  state: {
+    carrito: [],
+  },
+  mutations: {
+    addToCart(state, producto) {
+      const { carrito } = state;
+      const { hasOwnProperty } = Object.prototype;
+      const { id } = producto
+
+      if (hasOwnProperty.call(carrito, id)) {
+        carrito[id].cantidad += 1
+      } else {
+        producto.cantidad = 1
+        carrito[id] = producto;
+      }
+      state.carrito = [...carrito]
     },
-    mutations:{
-        addProducto (state, producto) {
-            state.productos.push(producto)
-        }
+  },
+  actions: {
+    addToCart({ commit }, producto) {
+      commit("addToCart", producto);
     },
-    actions:{
-        addProducto ({commit}, producto) {
-            commit('addProducto', producto)
-        }
-    }
-}
+  },
+};

@@ -15,7 +15,7 @@
     <v-card-title>
       {{ producto.nombre }}
       <div v-if="producto.stock > 0" class="ms-auto text-subtitle-1">
-        {{ producto.stock }} en stock}
+        {{ producto.stock }} en stock
       </div>
       <div v-else class="ms-auto text-subtitle-1">no hay stock</div>
     </v-card-title>

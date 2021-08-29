@@ -29,11 +29,21 @@ export default {
       productos: [],
     };
   },
+  methods: {
+    load () {
+      this.productos = this.carrito.filter((producto) => producto != undefined);
+    }
+  },
   computed: {
     ...mapState("cart", ["carrito"]),
   },
   mounted() {
-    this.productos = this.carrito.filter((producto) => producto != undefined);
+    this.load();
   },
+  watch: {
+    carrito() {
+      this.load()
+    }
+  }
 };
 </script>

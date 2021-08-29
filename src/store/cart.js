@@ -6,17 +6,17 @@ export default {
   mutations: {
     addToCart(state, producto) {
       const { carrito } = state;
-      const { hasOwnProperty } = Object.prototype;
       const { id } = producto
 
-      if (hasOwnProperty.call(carrito, id)) {
-        carrito[id].cantidad ++
-      } else {
+      if (typeof carrito[id] == 'undefined') {
         producto.cantidad = 1
         carrito[id] = producto;
+      } else {
+        carrito[id].cantidad ++
       }
       state.carrito = [...carrito]
     },
+
     remToCart(state, producto) {
       const { carrito } = state;
       const { id } = producto

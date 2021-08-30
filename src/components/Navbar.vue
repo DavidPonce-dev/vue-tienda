@@ -62,14 +62,22 @@ export default {
     ...mapState("user", ["user"]),
     ...mapState("cart", ["carrito"]),
   },
-  watch:{
-    carrito () {
+  methods: {
+    updateCart () {
       const productos = this.carrito.filter((producto) => producto != undefined)
       let suma = 0
       for (const producto of productos){
         suma += producto.cantidad
       }
       this.cantidad = suma
+    
+
+    }
+  },
+  watch:{
+    carrito () {
+      this.updateCart()
+
     }
   }
 };
